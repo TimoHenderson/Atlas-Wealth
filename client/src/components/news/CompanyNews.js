@@ -11,7 +11,6 @@ const CompanyNews = ({ symbol = null, page }) => {
       let newsData
       if (symbol) {
         newsData = await getNewsSymbol(symbol);
-        console.table(newsData)
       }
       else { newsData = await getNews(); }
       setNews(newsData);

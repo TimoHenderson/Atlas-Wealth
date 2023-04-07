@@ -22,7 +22,7 @@ const View = ({
   allStocks,
   addShares,
   sellShares,
-  selectedSymbol,
+  selectedStock,
   selectSymbol,
 }) => {
   const [logo, setLogo] = useState(null);
@@ -37,7 +37,7 @@ const View = ({
     if (selectedStock) {
       fetchImage(selectedStock);
     }
-  }, [selectedSymbol, allStocks]);
+  }, [selectedStock, allStocks]);
 
   const options = allStocks.map((stock) => {
     return `${stock.symbol} : ${stock.name}`;
@@ -45,7 +45,7 @@ const View = ({
 
   const findSelectedOption = () => {
     const found = options.find((option) => {
-      return option.split(' :')[0] === selectedSymbol;
+      return option.split(' :')[0] === selectedStock.symbol;
     });
     return found;
   };
@@ -58,18 +58,16 @@ const View = ({
 
   const findPortfolioAsset = () => {
     const asset = user.portfolio.find(
-      (asset) => asset.symbol === selectedSymbol
+      (asset) => asset.symbol === selectedStock.symbol
     );
     return asset;
   };
 
   const asset = findPortfolioAsset();
 
-  const selectedStock = allStocks.find(
-    (stock) => stock.symbol === selectedSymbol
-  );
+
   const stockTransactions = user.shareTransactions.filter(
-    (trans) => trans.stockSymbol === selectedSymbol
+    (trans) => trans.stockSymbol === selectedStock.symbol
   );
 
   return (
@@ -99,7 +97,7 @@ const View = ({
                   Volume:{' '}
                   {comma(
                     selectedStock.graphData[
-                      selectedStock.graphData.length - 1
+                    selectedStock.graphData.length - 1
                     ][5]
                   )}
                 </p>
@@ -145,7 +143,7 @@ const View = ({
             )}
             <TableAccordion
               summary={`${selectedStock.name} News`}
-              element={<CompanyNews symbol={selectedSymbol} page={'view'} />}
+              element={<CompanyNews symbol={selectedStock.symbol} page={'view'} />}
             />
           </CardContent>
         </Card>

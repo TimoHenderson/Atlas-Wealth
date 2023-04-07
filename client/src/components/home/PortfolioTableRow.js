@@ -84,7 +84,7 @@ const PortfolioTableRow = ({ stock, sellShares, addShares, selectSymbol }) => {
                             <TableCell sx={{ width: '91%' }} />
                             <TableCell style={{ display: 'flex', flexDirection: 'column', padding: '2px', width: '10rem' }}>
                                 <TextField style={{ marginTop: '0.5rem', marginBottom: '.5rem' }} id="addInput" type='number' onChange={onAddChange} placeholder='Number to Add'></TextField>
-                                <Button sx={{backgroundColor: "green", "&:hover": { backgroundColor: "#009900" }}}style={{ marginBottom: '.5rem' }} variant="contained" onClick={add}>Add Shares</Button>
+                                <Button sx={{ backgroundColor: "green", "&:hover": { backgroundColor: "#009900" } }} style={{ marginBottom: '.5rem' }} variant="contained" onClick={add}>Add Shares</Button>
                                 <Button style={{ marginBottom: '.5rem' }} variant="contained" onClick={addClick}>Cancel</Button>
                             </TableCell>
                             <TableCell sx={{ width: '10%' }} />
@@ -95,7 +95,7 @@ const PortfolioTableRow = ({ stock, sellShares, addShares, selectSymbol }) => {
                             <TableCell sx={{ width: '100%' }} />
                             <TableCell style={{ display: 'flex', flexDirection: 'column', padding: '2px', width: '10rem' }}>
                                 <TextField style={{ marginTop: '0.5rem', marginBottom: '.5rem' }} id="input" type='number' onChange={onChange} max={stock.numShares} placeholder='Number to Sell'></TextField>
-                                <Button sx={{backgroundColor: "#DD0000", "&:hover": { backgroundColor: "#FF0000" }}} style={{ marginBottom: '.5rem' }} variant="contained" onClick={sell}>Sell Shares</Button>
+                                <Button sx={{ backgroundColor: "#DD0000", "&:hover": { backgroundColor: "#FF0000" } }} style={{ marginBottom: '.5rem' }} variant="contained" onClick={sell}>Sell Shares</Button>
                                 <Button style={{ marginBottom: '.5rem' }} variant="contained" onClick={sellClick}>Cancel</Button>
                             </TableCell>
                         </TableRow>
@@ -111,51 +111,3 @@ const PortfolioTableRow = ({ stock, sellShares, addShares, selectSymbol }) => {
 
 export default PortfolioTableRow;
 
-// EDIT BUTTON
-{/* <TableCell sx={cellStyle} onClick={editClick}><SettingsIcon /></TableCell> */ }
-//EDIT ROW
-{/* <TableRow>
-<TableCell style={{ paddingBottom: 0, paddingTop: 0, margin: 0 }} colSpan={8}>
-<Collapse in={editClicked} timeout="auto" unmountOnExit>
-<TableHead>
-<TableCell sx={cellStyle}>Share</TableCell>
-<TableCell sx={cellStyle}>Shares Held</TableCell>
-<TableCell sx={cellStyle}>Average Value</TableCell>
-<TableCell sx={cellStyle}>Current Value</TableCell>
-</TableHead>
-<TableBody>
-<TableRow>
-<TableCell sx={cellStyle}><input type='text' readOnly value={stock.symbol}></input></TableCell>
-<TableCell sx={cellStyle}><input onChange={editChange} id='numShares' type='number' defaultValue={stock.numShares}></input></TableCell>
-<TableCell sx={cellStyle}><input onChange={editChange} id='averagePricePaid' type='number' defaultValue={stock.averagePricePaid}></input></TableCell>
-<TableCell sx={cellStyle}><input onChange={editChange} id='currentMarketValue' type='number' defaultValue={stock.currentMarketValue}></input></TableCell>
-<TableCell sx={cellStyle}><button onClick={deleteEntry}>Delete</button></TableCell>
-<TableCell sx={cellStyle}><button onClick={submitEditEntry}>Confirm Changes</button></TableCell>
-<TableCell sx={cellStyle}><button onClick={editClick}>Cancel</button></TableCell>
-</TableRow>
-</TableBody>
-</Collapse>
-</TableCell>
-</TableRow> */}
-
-//EDIT FUNCTIONS
-// const deleteEntry = () => {
-//     setEditClicked(false)
-//     deleteShare(stock)
-// }
-// const editChange = (e) => {
-//     editForm[e.target.id] = Number(e.target.value)
-//     setEditForm(editForm)
-// }
-
-// const submitEditEntry = () => {
-//     editShare(editForm, stock)
-//     setEditForm(stock)
-//     setEditClicked(!editClicked);
-// }
-
-// const editClick = () => {
-//     setClicked(false)
-//     setEditClicked(!editClicked);
-// }
-// const [editForm, setEditForm] = useState(stock);
