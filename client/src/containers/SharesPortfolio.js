@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Paper} from '@mui/material';
+import { Paper } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getUsers, transaction } from '../api_services/UsersService';
 import { getStocks } from '../api_services/StocksService';
@@ -31,16 +31,16 @@ const SharesPortfolio = () => {
         primary: '#ffffff',
         secondary: '#ffffff',
       },
-      background:{
+      background: {
         // paper: '#163C7E',
         // default: '#6c6c6c',
         paper: '#8699c1',
         default: '#0f2248',
       }
     },
-    typography:{
-      fontSize:12,
-      fontWeightMedium:600
+    typography: {
+      fontSize: 12,
+      fontWeightMedium: 600
     },
     shape: {
       borderRadius: 5,
@@ -129,14 +129,15 @@ const SharesPortfolio = () => {
     setUser(temp);
   };
 
+  const selectedStock = allStocks ? allStocks.find((stock) => stock.symbol === selectedSymbol) : null
 
   return (
 
     <ThemeProvider theme={darkTheme}>
       {allUsers[user] && allStocks ? (
-        <Router> 
+        <Router>
           <ChartTheme />
-          <Paper elevation={10} sx={{bgcolor: 'background.default'}} style={{ minHeight:'100vh', height: '100%' }}>
+          <Paper elevation={10} sx={{ bgcolor: 'background.default' }} style={{ minHeight: '100vh', height: '100%' }}>
             <ButtonAppBar user={allUsers[user]} />
             <Routes>
               <Route
@@ -164,7 +165,7 @@ const SharesPortfolio = () => {
                     allStocks={allStocks}
                     addShares={addShares}
                     selectSymbol={selectSymbol}
-                    selectedSymbol={selectedSymbol}
+                    selectedStock={selectedStock}
                   />
                 }
               />

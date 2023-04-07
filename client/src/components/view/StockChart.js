@@ -1,5 +1,4 @@
-// To show graph of a single stock. Requires stockSymbol prop, 
-// Is only set up in demo mode so the only stocksymbol that will work is "IBM"
+// To show graph of a single stock. Requires a single stock data
 
 import React, { useState, useEffect } from "react";
 import Highcharts from 'highcharts/highstock'
@@ -7,8 +6,6 @@ import HighchartsReact from 'highcharts-react-official'
 import './StockChart.css'
 
 require('highcharts/indicators/indicators')(Highcharts)
-// require('highcharts/indicators/pivot-points')(Highcharts)
-// require('highcharts/indicators/macd')(Highcharts)
 require('highcharts/modules/accessibility')(Highcharts);
 require('highcharts/modules/hollowcandlestick')(Highcharts);
 
@@ -41,10 +38,6 @@ const StockChart = ({ selectedStock }) => {
             }]
         },
 
-        // title: {
-        //     text: `Loading`
-        // },
-
         series: [{
             type: 'candlestick',
             name: 'Loading',
@@ -53,31 +46,14 @@ const StockChart = ({ selectedStock }) => {
         }]
     })
 
-
-    // if (stock) {
-    //     console.log("stock", stock)
-    //     options.series[0].data = stock.graphData;
-    //     options.series[0].name = stock.symbol;
-    //     options.title.text = `${stock.symbol} Price`
-    // }
-
-
-
     useEffect(() => {
         const updateSeries = (stock) => {
             const newChartOptions = { ...chartOptions }
             newChartOptions.series[0].data = stock.graphData;
             newChartOptions.series[0].title = stock.symbol;
             newChartOptions.series[0].name = stock.symbol;
-            // newChartOptions.title.text = stock.symbol;
             setChartOptions(newChartOptions);
         }
-
-        // const getData = async () => {
-        //     const res = await fetch(`http://localhost:9000/api/stocks/${stockSymbol}`);
-        //     const data = await res.json();
-        //     updateSeries(data);
-        // }
         if (selectedStock) {
             updateSeries(selectedStock);
         }
