@@ -16,6 +16,9 @@ This project was built using:
 - TDD - Mocha | Cypress
 - Finnhub API
 
+
+<hr>
+
 <span>
 <img hspace="5" height="50px" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/react/react-original.svg">
 <img hspace="5" height="50px" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/javascript/javascript-original.svg">
@@ -27,7 +30,21 @@ This project was built using:
 <br>
 <hr>
 
-![name](https://github.com/Neil-Burgoyne/Shares-Portfolio-Application/blob/main/Diagrams/Atlas%20Wealth%20Homepage.png)
+### Screenshots
+
+<div align="center">
+   <span>
+    <kbd>
+      <img height="200px" alt="home page view" src="https://github.com/rosscondie/Atlas_Wealth_Group_Project/blob/main/client/public/homepageview.png">
+    </kbd>
+     &emsp;&emsp;
+    <kbd>
+     <img height="200px" alt="view stocks page view" src="https://github.com/rosscondie/Atlas_Wealth_Group_Project/blob/main/client/public/singlestockview.png">
+    </kbd>
+     <span>
+ </div>
+
+
 
 ## Brief
 
@@ -40,7 +57,16 @@ A user should be able to:
 - View total current value.
 - View individual and total performance trends.
 - Retrieve a list of share prices from an external API and allow the user to add shares to her portfolio.
+- Sell individual or multiple shares from her portfolio.
 - View a chart of the current values in her portfolio.
+
+### Extensions 
+
+Possible Extensions:
+
+- Be able to view current News relating to a specifc share.
+- Setup the application for multiple users to use. 
+- Add a watched list for favourite shares.
 
 ## Project Setup
 
@@ -59,9 +85,11 @@ npm run seeds
 ```
 
 Create .env file in the server folder, add the following code and insert the API key from [Finnhub](https://finnhub.io/):
-
-API_KEY="api key"
-
+    
+    
+```
+API_KEY="your api key goes here"
+```
 Start the server:
 
 ```
